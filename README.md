@@ -62,34 +62,6 @@ Audio Engine: Tone.js (CDNs)
 
 Core Systems: Vanilla ES6 JavaScript, HTML5 semantic layout structure, CSS Custom Properties.
 
-🚀 Rapid Local Deployment & Hosting
-
-Because this site is built using a single-file architectural mandate, deploying is incredibly simple.
-
-Option A: Local Execution
-
-Clone this repository or copy the code:
-
-git clone https://github.com/jyothish123-oss/your-repo-name.git
-cd your-repo-name
-
-
-Place your profile photograph inside this directory and name it precisely photo.jpg.
-
-Double-click index.html to launch it directly in any modern browser.
-
-Option B: GitHub Pages (Free Hosting)
-
-Push your index.html and photo.jpg to a public repository on GitHub.
-
-On your repository page, click on Settings (gear icon on the top right).
-
-Scroll down to Pages in the left sidebar menu.
-
-Under Build and deployment -> Branch, select main (or master) and folder / (root).
-
-Click Save. Within 1–2 minutes, your secure gateway will be live!
-
 🗃️ Active Operational Projects Detailed Inside
 
 SentinelGPT: AI-driven SOC Analyst automating log parsing with locally hosted LLMs (Qwen2.5) mapping directly onto the MITRE ATT&CK framework.
