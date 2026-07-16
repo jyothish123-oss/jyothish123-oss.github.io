@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yanala Jyothish Reddy | Portfolio</title>
+    
+    <!-- SVG Favicon with Initials -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100%25' height='100%25' fill='%230f172a'/%3E%3Ctext x='50%25' y='55%25' font-family='sans-serif' font-weight='bold' font-size='40' fill='%236366f1' dominant-baseline='middle' text-anchor='middle'%3EYR%3C/text%3E%3C/svg%3E">
+
+    <!-- Google Fonts: Sora (Headings) & IBM Plex Sans (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"IBM Plex Sans"', 'sans-serif'],
+                        display: ['Sora', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            900: '#312e81',
+                            dark: '#0b0f19',
+                            card: '#151b2c',
+                            border: '#222d44'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: 'IBM Plex Sans', sans-serif;
+            background-color: #0b0f19;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Sora', sans-serif;
+        }
+        /* Custom scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b0f19;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #222d44;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6366f1;
+        }
+    </style>
+</head>
+<body class="text-slate-300 antialiased min-h-screen selection:bg-indigo-500 selection:text-white">
+
+    <!-- Main split layout wrapper -->
+    <div class="min-h-screen flex flex-col lg:flex-row max-w-[1600px] mx-auto">
+
+        <!-- Left Pane: Hero / About Sidebar -->
+        <aside class="w-full lg:w-[42%] lg:fixed lg:top-0 lg:left-0 lg:h-screen lg:overflow-y-auto flex flex-col justify-between p-8 lg:p-16 xl:p-20 border-b lg:border-b-0 lg:border-r border-brand-border bg-brand-dark z-10">
+            
+            <div class="space-y-8">
+                <!-- Avatar / Photo element -->
+                <div class="relative group w-32 h-32 md:w-36 md:h-36 rounded-2xl overflow-hidden border-2 border-indigo-500/30 p-1 bg-brand-card shadow-lg shadow-indigo-500/10 transition-transform duration-300 hover:scale-105">
+                    <img src="photo.jpg" alt="Yanala Jyothish Reddy" class="w-full h-full object-cover rounded-xl bg-slate-800" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <!-- Elegant text placeholder fallback if photo is not present yet -->
+                    <div class="hidden absolute inset-0 bg-gradient-to-tr from-brand-600 to-indigo-400 items-center justify-center text-3xl font-bold text-white tracking-widest">
+                        YJR
+                    </div>
+                </div>
+
+                <div class="space-y-3">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold tracking-wide">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        Available for Internships
+                    </div>
+                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
+                        Yanala Jyothish Reddy
+                    </h1>
+                    <p class="text-lg text-slate-400 min-h-[1.5em]">
+                        <span id="typed-text" class="text-indigo-400 font-semibold"></span><span class="animate-pulse font-light text-indigo-400">|</span>
+                    </p>
+                </div>
+
+                <p class="text-slate-400 leading-relaxed text-sm md:text-base max-w-md">
+                    Computer Science undergraduate with expertise in Machine Learning, Generative AI, and Data Analytics. Experienced in building AI-powered applications, local LLM installations, and predictive models.
+                </p>
+
+                <!-- Navigation Shortcuts (Desktop) -->
+                <nav class="hidden lg:flex flex-col space-y-3 pt-6 text-sm font-medium">
+                    <a href="#about" class="nav-link flex items-center gap-3 text-indigo-400 group">
+                        <span class="w-8 h-[1px] bg-indigo-500 transition-all duration-300 group-hover:w-16"></span>
+                        About Me
+                    </a>
+                    <a href="#skills" class="nav-link flex items-center gap-3 text-slate-500 hover:text-indigo-400 transition-colors group">
+                        <span class="w-8 h-[1px] bg-slate-700 transition-all duration-300 group-hover:bg-indigo-500 group-hover:w-16"></span>
+                        Skills & Domains
+                    </a>
+                    <a href="#projects" class="nav-link flex items-center gap-3 text-slate-500 hover:text-indigo-400 transition-colors group">
+                        <span class="w-8 h-[1px] bg-slate-700 transition-all duration-300 group-hover:bg-indigo-500 group-hover:w-16"></span>
+                        Featured Projects
+                    </a>
+                    <a href="#education" class="nav-link flex items-center gap-3 text-slate-500 hover:text-indigo-400 transition-colors group">
+                        <span class="w-8 h-[1px] bg-slate-700 transition-all duration-300 group-hover:bg-indigo-500 group-hover:w-16"></span>
+                        Education & Journey
+                    </a>
+                    <a href="#certifications" class="nav-link flex items-center gap-3 text-slate-500 hover:text-indigo-400 transition-colors group">
+                        <span class="w-8 h-[1px] bg-slate-700 transition-all duration-300 group-hover:bg-indigo-500 group-hover:w-16"></span>
+                        Honors & Badges
+                    </a>
+                </nav>
+            </div>
+
+            <!-- Footer Section in Sidebar -->
+            <div class="space-y-6 pt-12 lg:pt-0">
+                <!-- Location & Brief Coordinates -->
+                <div class="flex items-center gap-3 text-xs text-slate-400">
+                    <i data-lucide="map-pin" class="w-4 h-4 text-indigo-400"></i>
+                    <span>Hyderabad, Telangana, India</span>
+                </div>
+
+                <!-- Social Profile Badges -->
+                <div class="flex flex-wrap gap-3">
+                    <a href="https://github.com" target="_blank" class="p-2.5 rounded-xl bg-brand-card hover:bg-indigo-600 border border-brand-border hover:border-indigo-500 text-slate-300 hover:text-white transition-all shadow-md flex items-center justify-center" aria-label="GitHub">
+                        <i data-lucide="github" class="w-5 h-5"></i>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" class="p-2.5 rounded-xl bg-brand-card hover:bg-indigo-600 border border-brand-border hover:border-indigo-500 text-slate-300 hover:text-white transition-all shadow-md flex items-center justify-center" aria-label="LinkedIn">
+                        <i data-lucide="linkedin" class="w-5 h-5"></i>
+                    </a>
+                    <a href="https://leetcode.com" target="_blank" class="p-2.5 rounded-xl bg-brand-card hover:bg-indigo-600 border border-brand-border hover:border-indigo-500 text-slate-300 hover:text-white transition-all shadow-md flex items-center justify-center" aria-label="LeetCode">
+                        <i data-lucide="code-2" class="w-5 h-5"></i>
+                    </a>
+                    <a href="mailto:yanalajyotishreddy@gmail.com" class="p-2.5 rounded-xl bg-brand-card hover:bg-indigo-600 border border-brand-border hover:border-indigo-500 text-slate-300 hover:text-white transition-all shadow-md flex items-center justify-center" aria-label="Email Address">
+                        <i data-lucide="mail" class="w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Right Pane: Scrolling Content -->
+        <main class="w-full lg:w-[58%] lg:ml-[42%] px-6 py-12 md:px-12 md:py-16 lg:px-20 lg:py-24 space-y-24 bg-[#0c1220]">
+            
+            <!-- Mobile Sticky Header Shadow Helper -->
+            <section id="about" class="space-y-4 pt-4 lg:pt-0">
+                <h2 class="text-xs uppercase tracking-widest text-indigo-400 font-bold mb-4 flex items-center gap-2">
+                    <span class="w-6 h-[1.5px] bg-indigo-500"></span> About Summary
+                </h2>
+                <div class="prose prose-invert max-w-none text-slate-300 text-base md:text-lg leading-relaxed">
+                    <p>
+                        I'm an ambitious Computer Science student specializing in <strong>Cyber Security</strong> at Geethanjali College of Engineering and Technology. My technical drive lies at the intersection of AI, robust predictive analytics, and next-generation defense systems. 
+                    </p>
+                    <p class="mt-4 text-slate-400 text-sm md:text-base">
+                        From designing multimodal retrieval-augmented search engines using <strong class="text-slate-300">FAISS, BLIP, and CLIP</strong>, to configuring defensive, fine-tuned security analysis environments powered by local <strong class="text-slate-300">LLMs (Qwen2.5)</strong>, I engineer performant products that resolve actual problems.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills" class="space-y-8 scroll-mt-24">
+                <h2 class="text-xs uppercase tracking-widest text-indigo-400 font-bold flex items-center gap-2">
+                    <span class="w-6 h-[1.5px] bg-indigo-500"></span> Technical Arsenal
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    
+                    <!-- Programming Languages -->
+                    <div class="p-6 rounded-2xl bg-brand-card border border-brand-border shadow-md">
+                        <h3 class="text-white font-semibold text-sm tracking-wide mb-4 flex items-center gap-2">
+                            <i data-lucide="code" class="w-4 h-4 text-indigo-400"></i> Languages
+                        </h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 border border-slate-800 text-slate-300">Python</span>
+                            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 border border-slate-800 text-slate-300">Java</span>
+                            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 border border-slate-800 text-slate-300">C</span>
+                            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 border border-slate-800 text-slate-300">SQL</span>
+                            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 border border-slate-800 text-slate-300">JavaScript</span>
+                        </div>
+                    </div>
+
+                    <!-- AI & Machine Learning -->
+                    <div class="p-6 rounded-2xl bg-brand-card border border-brand-border shadow-md">
+                        <h3 class="text-white font-semibold text-sm tracking-wide mb-4 flex items-center gap-2">
+                            <i data-lucide="cpu" class="w-4 h-4 text-indigo-400"></i> AI & Deep Learning
+                        </h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-indigo-900/40 border border-indigo-500/20 text-indigo-300">Machine Learning</span>
+                            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-indigo-900/40 border border-indigo-500/20 text-indigo-300">Deep Learning</span>
+                            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-indigo-900/40 border border-indigo-500/20 text-indigo-300">Generative AI</span>
+                            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-indigo-900/40 border border-indigo-500/20 text-indigo-300">LLMs</span>
+                            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-indigo-900/40 border border-indigo-500/20 text-indigo-300">FAISS</span>
+                            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-indigo-900/40 border border-indigo-500/20 text-indigo-300">PyTorch</span>
+                        </div>
+                    </div>
+
+                    <!-- Libraries & DBs -->
+                    <div class="p-6 rounded-2xl bg-brand-card border border-brand-border shadow-md">
+                        <h3 class="text-white font-semibold text-sm tracking-wide mb-4 flex items-center gap-2">
+                            <i data-lucide="database" class="w-4 h-4 text-indigo-400"></i> Ecosystem & Databases
+                        </h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 border border-slate-800 text-slate-300">Pandas</span>
+                            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 border border-slate-800 text-slate-300">OpenCV</span>
+                            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 border border-slate-800 text-slate-300">Streamlit</span>
+                            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 border border-slate-800 text-slate-300">MySQL</span>
+                            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 border border-slate-800 text-slate-300">MongoDB</span>
+                            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 border border-slate-800 text-slate-300">SQLite</span>
+                        </div>
+                    </div>
+
+                    <!-- Tools & Developer Workspace -->
+                    <div class="p-6 rounded-2xl bg-brand-card border border-brand-border shadow-md">
+                        <h3 class="text-white font-semibold text-sm tracking-wide mb-4 flex items-center gap-2">
+                            <i data-lucide="terminal" class="w-4 h-4 text-indigo-400"></i> Security & Core Domains
+                        </h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 border border-slate-800 text-slate-300">Cyber Security</span>
+                            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 border border-slate-800 text-slate-300">Docker</span>
+                            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 border border-slate-800 text-slate-300">Git/GitHub</span>
+                            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 border border-slate-800 text-slate-300">Ollama</span>
+                            <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 border border-slate-800 text-slate-300">Computer Vision</span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects" class="space-y-8 scroll-mt-24">
+                <div class="flex justify-between items-center">
+                    <h2 class="text-xs uppercase tracking-widest text-indigo-400 font-bold flex items-center gap-2">
+                        <span class="w-6 h-[1.5px] bg-indigo-500"></span> Signature Projects
+                    </h2>
+                </div>
+
+                <div class="space-y-6">
+
+                    <!-- Project 1: Retail AI Intelligence Platform -->
+                    <div class="group relative p-6 rounded-2xl bg-brand-card border border-brand-border hover:border-indigo-500/40 hover:shadow-xl hover:shadow-indigo-500/5 transition-all duration-300">
+                        <div class="flex flex-col md:flex-row justify-between items-start gap-4 mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-white group-hover:text-indigo-300 transition-colors">
+                                    Retail AI Intelligence Platform
+                                </h3>
+                                <p class="text-xs text-indigo-400 mt-1">ARIMA Forecasting & Analytics</p>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <a href="https://github.com" target="_blank" class="p-1.5 rounded-lg bg-brand-dark hover:bg-indigo-600 text-slate-400 hover:text-white border border-brand-border transition-colors" title="GitHub Repository">
+                                    <i data-lucide="github" class="w-4 h-4"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            Built an AI-powered retail analytics platform equipped with multi-functional dashboards designed for compiling and analyzing 10,000+ actual store sales histories. Integrated advanced ARIMA forecasting alongside automated anomaly detection modules to identify patterns and output structural sales analytics directly to decision-makers.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 rounded bg-slate-900 text-[11px] font-semibold text-slate-300 border border-slate-800">Python</span>
+                            <span class="px-2.5 py-1 rounded bg-slate-900 text-[11px] font-semibold text-slate-300 border border-slate-800">ARIMA</span>
+                            <span class="px-2.5 py-1 rounded bg-slate-900 text-[11px] font-semibold text-slate-300 border border-slate-800">Streamlit</span>
+                            <span class="px-2.5 py-1 rounded bg-slate-900 text-[11px] font-semibold text-slate-300 border border-slate-800">Scikit-learn</span>
+                            <span class="px-2.5 py-1 rounded bg-slate-900 text-[11px] font-semibold text-slate-300 border border-slate-800">SQLite</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: AI Product Intelligence using BLIP, CLIP & FAISS -->
+                    <div class="group relative p-6 rounded-2xl bg-brand-card border border-brand-border hover:border-indigo-500/40 hover:shadow-xl hover:shadow-indigo-500/5 transition-all duration-300">
+                        <div class="flex flex-col md:flex-row justify-between items-start gap-4 mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-white group-hover:text-indigo-300 transition-colors">
+                                    Multimodal AI Product Intelligence
+                                </h3>
+                                <p class="text-xs text-indigo-400 mt-1">Image-Text Semantic Search Engine</p>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <a href="https://github.com" target="_blank" class="p-1.5 rounded-lg bg-brand-dark hover:bg-indigo-600 text-slate-400 hover:text-white border border-brand-border transition-colors" title="GitHub Repository">
+                                    <i data-lucide="github" class="w-4 h-4"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            Developed a cross-modal search and auto-tagging system using combined architectures of BLIP (for automated descriptions) and CLIP (for dense vector embedding generation). Deployed a localized, low-latency FAISS-based vector search implementation to execute sub-millisecond visual catalog search and recommendation queries.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 rounded bg-slate-900 text-[11px] font-semibold text-slate-300 border border-slate-800">PyTorch</span>
+                            <span class="px-2.5 py-1 rounded bg-slate-900 text-[11px] font-semibold text-slate-300 border border-slate-800">BLIP & CLIP</span>
+                            <span class="px-2.5 py-1 rounded bg-slate-900 text-[11px] font-semibold text-slate-300 border border-slate-800">FAISS</span>
+                            <span class="px-2.5 py-1 rounded bg-slate-900 text-[11px] font-semibold text-slate-300 border border-slate-800">Hugging Face</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: SentinelGPT AI SOC Security Analyst -->
+                    <div class="group relative p-6 rounded-2xl bg-brand-card border border-brand-border hover:border-indigo-500/40 hover:shadow-xl hover:shadow-indigo-500/5 transition-all duration-300">
+                        <div class="flex flex-col md:flex-row justify-between items-start gap-4 mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-white group-hover:text-indigo-300 transition-colors">
+                                    SentinelGPT AI SOC Security Analyst
+                                </h3>
+                                <p class="text-xs text-indigo-400 mt-1">Cybersecurity Autonomous Agent</p>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <a href="https://github.com" target="_blank" class="p-1.5 rounded-lg bg-brand-dark hover:bg-indigo-600 text-slate-400 hover:text-white border border-brand-border transition-colors" title="GitHub Repository">
+                                    <i data-lucide="github" class="w-4 h-4"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            Engineered an automated SOC security investigation framework running local LLMs securely. The tool parses raw, incoming network log data to structure intelligence reports, automatically identify Indicators of Compromise (IOC), map tactics with the MITRE ATT&CK Matrix context, and dynamically allocate real-time security threats a composite severity score.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 rounded bg-slate-900 text-[11px] font-semibold text-slate-300 border border-slate-800">Streamlit</span>
+                            <span class="px-2.5 py-1 rounded bg-slate-900 text-[11px] font-semibold text-slate-300 border border-slate-800">Ollama & Qwen2.5</span>
+                            <span class="px-2.5 py-1 rounded bg-slate-900 text-[11px] font-semibold text-slate-300 border border-slate-800">MITRE ATT&CK</span>
+                            <span class="px-2.5 py-1 rounded bg-slate-900 text-[11px] font-semibold text-slate-300 border border-slate-800">SecOps</span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Education Section -->
+            <section id="education" class="space-y-8 scroll-mt-24">
+                <h2 class="text-xs uppercase tracking-widest text-indigo-400 font-bold flex items-center gap-2">
+                    <span class="w-6 h-[1.5px] bg-indigo-500"></span> Academic Timeline
+                </h2>
+
+                <div class="relative border-l border-brand-border ml-2 pl-6 space-y-10">
+                    
+                    <!-- B.Tech. Cyber Security -->
+                    <div class="relative">
+                        <!-- Bullet point marker -->
+                        <span class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-brand-dark border-2 border-indigo-500 ring-4 ring-brand-dark"></span>
+                        <div class="space-y-1">
+                            <span class="text-xs font-semibold text-indigo-400">2023 — 2027</span>
+                            <h3 class="text-lg font-bold text-white leading-tight">Geethanjali College of Engineering and Technology</h3>
+                            <p class="text-sm text-slate-300 font-medium">B.Tech. in Cyber Security</p>
+                            <p class="text-sm text-slate-400">Academic Standing: <strong class="text-emerald-400">CGPA 8.87 / 10</strong></p>
+                        </div>
+                    </div>
+
+                    <!-- Intermediate / Class XII -->
+                    <div class="relative">
+                        <span class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-brand-dark border-2 border-slate-600 ring-4 ring-brand-dark"></span>
+                        <div class="space-y-1">
+                            <span class="text-xs font-semibold text-slate-500">Completed 2023</span>
+                            <h3 class="text-lg font-bold text-white leading-tight">Sri Chaitanya Junior Kalasala, Hyderabad</h3>
+                            <p class="text-sm text-slate-300">TSBIE (Class XII)</p>
+                            <p class="text-sm text-slate-400">Graduated: <strong class="text-slate-300">91.4%</strong></p>
+                        </div>
+                    </div>
+
+                    <!-- Matriculation / Class X -->
+                    <div class="relative">
+                        <span class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-brand-dark border-2 border-slate-600 ring-4 ring-brand-dark"></span>
+                        <div class="space-y-1">
+                            <span class="text-xs font-semibold text-slate-500">Completed 2021</span>
+                            <h3 class="text-lg font-bold text-white leading-tight">Sri Chaitanya Techno School, Hyderabad</h3>
+                            <p class="text-sm text-slate-300">SSC (Class X)</p>
+                            <p class="text-sm text-slate-400">Graduated: <strong class="text-emerald-400">CGPA 10 / 10</strong></p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Certifications Section -->
+            <section id="certifications" class="space-y-8 scroll-mt-24">
+                <h2 class="text-xs uppercase tracking-widest text-indigo-400 font-bold flex items-center gap-2">
+                    <span class="w-6 h-[1.5px] bg-indigo-500"></span> Honors & Badges
+                </h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    
+                    <!-- Academics Honor -->
+                    <div class="flex items-start gap-4 p-5 rounded-xl bg-brand-card border border-brand-border hover:border-slate-800 transition-colors">
+                        <div class="p-2.5 rounded-lg bg-indigo-500/10 text-indigo-400">
+                            <i data-lucide="award" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Branch Topper (Cyber Security)</h4>
+                            <p class="text-xs text-slate-400 mt-1">GCET • Academic Year 2024-2025</p>
+                        </div>
+                    </div>
+
+                    <!-- Poster Presentation -->
+                    <div class="flex items-start gap-4 p-5 rounded-xl bg-brand-card border border-brand-border hover:border-slate-800 transition-colors">
+                        <div class="p-2.5 rounded-lg bg-indigo-500/10 text-indigo-400">
+                            <i data-lucide="trophy" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">First Prize - Tech Poster</h4>
+                            <p class="text-xs text-slate-400 mt-1">Inter-College Tech Symposium</p>
+                        </div>
+                    </div>
+
+                    <!-- IBM Certification -->
+                    <div class="flex items-start gap-4 p-5 rounded-xl bg-brand-card border border-brand-border hover:border-slate-800 transition-colors">
+                        <div class="p-2.5 rounded-lg bg-indigo-500/10 text-indigo-400">
+                            <i data-lucide="badge-check" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Data Analysis with Python</h4>
+                            <p class="text-xs text-slate-400 mt-1">IBM Cognitive Class & MySQL</p>
+                        </div>
+                    </div>
+
+                    <!-- Oracle Java -->
+                    <div class="flex items-start gap-4 p-5 rounded-xl bg-brand-card border border-brand-border hover:border-slate-800 transition-colors">
+                        <div class="p-2.5 rounded-lg bg-indigo-500/10 text-indigo-400">
+                            <i data-lucide="badge-check" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Introduction to Java & DBMS</h4>
+                            <p class="text-xs text-slate-400 mt-1">Oracle Academy Accreditation</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Quick Contact Information Card -->
+            <section class="p-8 rounded-2xl bg-gradient-to-tr from-brand-card via-[#121828] to-indigo-950/20 border border-indigo-500/10 flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="space-y-2 text-center md:text-left">
+                    <h3 class="text-xl font-bold text-white">Let's Collaborate on Security & AI</h3>
+                    <p class="text-sm text-slate-400 max-w-sm">I'm currently looking for developer opportunities, research collaborations, or internship roles.</p>
+                </div>
+                <a href="mailto:yanalajyotishreddy@gmail.com" class="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm transition-all shadow-lg shadow-indigo-600/20 whitespace-nowrap flex items-center gap-2">
+                    <i data-lucide="mail" class="w-4 h-4"></i> Get in Touch
+                </a>
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- Back to top and active scroll indicator -->
+    <script>
+        // Init Lucide Icons
+        lucide.createIcons();
+
+        // 1. Sleek Tagline Typing Simulation Logic
+        const dynamicRoles = [
+            "B.Tech Cybersecurity Student",
+            "Generative AI Specialist",
+            "Data Analytics Engineer",
+            "Local Security LLM Architect"
+        ];
+        
+        let activeIndex = 0;
+        let charIndex = 0;
+        let isTyping = true;
+        const speed = 100;
+        const pauseTime = 1800;
+        const targetElement = document.getElementById("typed-text");
+
+        function handleTypingEffect() {
+            const activeText = dynamicRoles[activeIndex];
+            
+            if (isTyping) {
+                targetElement.textContent = activeText.substring(0, charIndex + 1);
+                charIndex++;
+                if (charIndex === activeText.length) {
+                    isTyping = false;
+                    setTimeout(handleTypingEffect, pauseTime);
+                } else {
+                    setTimeout(handleTypingEffect, speed);
+                }
+            } else {
+                targetElement.textContent = activeText.substring(0, charIndex - 1);
+                charIndex--;
+                if (charIndex === 0) {
+                    isTyping = true;
+                    activeIndex = (activeIndex + 1) % dynamicRoles.length;
+                    setTimeout(handleTypingEffect, speed * 2);
+                } else {
+                    setTimeout(handleTypingEffect, speed / 2);
+                }
+            }
+        }
+        
+        // Kickoff typing rotation
+        window.addEventListener("DOMContentLoaded", () => {
+            setTimeout(handleTypingEffect, 500);
+        });
+
+        // 2. Active Sidebar Navigation Tracking
+        const trackedSections = document.querySelectorAll("main > section");
+        const navItems = document.querySelectorAll(".nav-link");
+
+        window.addEventListener("scroll", () => {
+            let activeId = "";
+            trackedSections.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= sectionTop - 150) {
+                    activeId = section.getAttribute("id");
+                }
+            });
+
+            navItems.forEach((link) => {
+                link.classList.remove("text-indigo-400");
+                link.classList.add("text-slate-500");
+                const span = link.querySelector("span");
+                if(span) {
+                    span.className = "w-8 h-[1px] bg-slate-700 transition-all duration-300 group-hover:bg-indigo-500 group-hover:w-16";
+                }
+
+                if (link.getAttribute("href") === `#${activeId}`) {
+                    link.classList.add("text-indigo-400");
+                    link.classList.remove("text-slate-500");
+                    if (span) {
+                        span.className = "w-16 h-[1px] bg-indigo-500 transition-all duration-300";
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
