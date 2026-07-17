@@ -60,7 +60,7 @@
             transition: background-color 0.5s ease, color 0.3s ease;
         }
 
-        /* Forest Theme (Default) */
+        /* Forest Theme (Default Layout) */
         .theme-forest {
             background-color: #030a06;
             background-image: radial-gradient(circle at 50% 50%, #071f11 0%, #020503 100%);
@@ -91,7 +91,7 @@
         }
 
         .accordion-content.active {
-            max-height: 2500px;
+            max-height: 3500px;
             opacity: 1;
         }
 
@@ -117,6 +117,50 @@
             background: var(--accent-color);
             border-radius: 4px;
             opacity: 0.7;
+        }
+
+        /* Dynamic Scanning Laser Line Animation */
+        @keyframes laserSweep {
+            0% { top: 0%; opacity: 0.1; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { top: 100%; opacity: 0.1; }
+        }
+        .laser-scanner {
+            animation: laserSweep 4s ease-in-out infinite;
+            background: linear-gradient(to right, transparent, var(--accent-color), transparent);
+            box-shadow: 0 0 10px var(--accent-color);
+        }
+        
+        /* Corner tech frame brackets */
+        .tech-corner {
+            width: 16px;
+            height: 16px;
+            position: absolute;
+            border-color: var(--accent-color);
+            z-index: 30;
+            opacity: 0.8;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+        .tech-corner-tl { top: -4px; left: -4px; border-top-width: 2px; border-left-width: 2px; }
+        .tech-corner-tr { top: -4px; right: -4px; border-top-width: 2px; border-right-width: 2px; }
+        .tech-corner-bl { bottom: -4px; left: -4px; border-bottom-width: 2px; border-left-width: 2px; }
+        .tech-corner-br { bottom: -4px; right: -4px; border-bottom-width: 2px; border-right-width: 2px; }
+        
+        /* Pulse for target reticle */
+        @keyframes reticlePulse {
+            0%, 100% { transform: scale(1); opacity: 0.25; }
+            50% { transform: scale(1.04); opacity: 0.6; }
+        }
+        .reticle-lock {
+            animation: reticlePulse 2.5s ease-in-out infinite;
+        }
+        .text-dynamic-accent {
+            color: var(--accent-color);
+        }
+        .bg-dynamic-accent {
+            background-color: var(--accent-color);
         }
     </style>
 </head>
@@ -179,14 +223,43 @@
                 </div>
             </div>
 
-            <!-- Right Photo Container -->
+            <!-- Upgraded Right Photo Container -->
             <div class="md:col-span-4 flex justify-center order-1 md:order-2">
                 <div class="relative group">
                     <!-- Glow decoration behind image -->
-                    <div class="absolute inset-0 bg-gradient-to-tr from-emerald-600 to-teal-400 rounded-2xl blur-xl opacity-30 group-hover:opacity-50 transition duration-500" id="hero-img-glow"></div>
-                    <div class="relative bg-emerald-950 p-2.5 rounded-2xl border border-dynamic shadow-2xl transition duration-500 group-hover:scale-[1.02]">
-                        <!-- Reference to specified file name "photo.jpg" exactly -->
-                        <img src="photo.jpg" alt="Yanala Jyothish Reddy" class="w-48 h-48 md:w-56 md:h-56 object-cover rounded-xl grayscale-[15%] contrast-[105%] group-hover:grayscale-0 transition duration-500" onerror="this.src='https://placehold.co/300x300/03120b/10b981?text=YJR+Security'">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-emerald-600 to-teal-400 rounded-2xl blur-xl opacity-30 group-hover:opacity-60 transition duration-500 animate-pulse" id="hero-img-glow"></div>
+                    
+                    <div class="relative bg-slate-950/60 p-4 rounded-2xl border border-dynamic shadow-2xl transition duration-500 group-hover:scale-[1.02] w-64 h-80 md:w-72 md:h-96 flex items-center justify-center overflow-hidden">
+                        
+                        <!-- Corner Tech Brackets -->
+                        <div class="tech-corner tech-corner-tl"></div>
+                        <div class="tech-corner tech-corner-tr"></div>
+                        <div class="tech-corner tech-corner-bl"></div>
+                        <div class="tech-corner tech-corner-br"></div>
+                        
+                        <!-- Crosshair Target Reticle Overlay -->
+                        <div class="absolute inset-6 border border-dashed border-dynamic/40 rounded-full pointer-events-none reticle-lock flex items-center justify-center">
+                            <div class="w-6 h-6 rounded-full border border-dashed border-dynamic/40"></div>
+                        </div>
+
+                        <!-- Active Laser Scan Line -->
+                        <div class="absolute left-0 right-0 h-0.5 z-20 laser-scanner pointer-events-none" id="laser-line-element"></div>
+                        
+                        <!-- Core Portrait Reference: photo.png -->
+                        <img src="photo.png" alt="Yanala Jyothish Reddy" class="w-full h-full object-cover rounded-xl grayscale-[15%] contrast-[105%] group-hover:grayscale-0 group-hover:scale-105 transition duration-700 relative z-10" onerror="this.src='https://placehold.co/300x400/03120b/10b981?text=YJR+Security'">
+
+                        <!-- Dynamic Face Recognition HUD Tags -->
+                        <div class="absolute top-2 left-2 bg-slate-950/90 border border-dynamic text-[9px] font-mono text-dynamic-accent px-1.5 py-0.5 rounded-md z-20 tracking-wider">
+                            SYS: SECURE
+                        </div>
+                        
+                        <div class="absolute bottom-2 right-2 bg-slate-950/90 border border-dynamic text-[9px] font-mono text-dynamic-accent px-1.5 py-0.5 rounded-md z-20 tracking-wider">
+                            ID: 23R11A62K1
+                        </div>
+
+                        <div class="absolute bottom-2 left-2 bg-slate-950/90 border border-dynamic text-[9px] font-mono text-dynamic-accent px-1.5 py-0.5 rounded-md z-20 tracking-wider flex items-center gap-1">
+                            <span class="w-1.5 h-1.5 bg-dynamic-accent rounded-full animate-ping"></span> MATCH: 99.8%
+                        </div>
                     </div>
                 </div>
             </div>
@@ -727,7 +800,7 @@
                     <button onclick="toggleNodeSection('contact-node')" class="w-full flex items-center justify-between p-5 text-left select-none hover:bg-slate-900/50 focus:outline-none">
                         <div class="flex items-center gap-4">
                             <span class="text-xs text-emerald-500 font-mono">07 //</span>
-                            <h2 class="text-xl md:text-2xl font-heading font-bold text-white group-hover:text-emerald-400 transition-colors">Coding Nodes & secure channels</h2>
+                            <h2 class="text-xl md:text-2xl font-heading font-bold text-white group-hover:text-emerald-400 transition-colors">Coding Nodes & Secure Channels</h2>
                         </div>
                         <i id="icon-contact-node" data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform duration-300"></i>
                     </button>
@@ -787,7 +860,7 @@
 
         </main>
 
-        <!-- Dynamic Footnotes -->
+        <!-- Footnotes -->
         <footer class="mt-20 border-t border-dynamic/40 pt-8 text-center text-xs text-slate-500 font-mono space-y-2">
             <p>© 2026 Yanala Jyothish Reddy. Compiled as dynamic cyber-portfolio infrastructure.</p>
             <p>Processed under architectural system guidelines.</p>
